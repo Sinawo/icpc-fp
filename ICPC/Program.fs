@@ -13,14 +13,23 @@ let Findwords (input : string) (index : int)=
                  let foundword = input.[statingIndex..i-1] in
                  foundword
       search index (index)
-              //   let IsContainsPrecidingComma = IsComma foundword
+              
  
 
 
 
-let setInput (input : string) (mystring : string)(*contains comma*) (index : int) = failwith "j"
+let setInput (input : string) (mystring : string)(*contains comma*) (index : int) = //failwith "j"
                                 
-                                //let rec myf 
+                             let word =  in
+                                word
+                               let rec myf index =
+                                let found = Findwords input index in
+                                 match word.CompareTo(found) with
+                                 | 1 -> 
+                                       let input = input + "," + 
+                                 
+                                 | 2 -> myf index+1
+
 
                    
 
@@ -30,9 +39,6 @@ let IsComma (word :string) =
           | true -> word
           | _ -> "NotFound"
    
-//let addCommaToConcurrencies input index =  failwith " kkkkk"
-            //match input = "NotFound" with
-            //| true -> 
 
 
 let GetNextIndex (input : string) (index : int)=
@@ -46,29 +52,6 @@ let GetNextIndex (input : string) (index : int)=
      search index index
 
 let SucceedingComma (input : string)  (word : string) = failwith "kkk"
-                  //     FindWords input
-//                let rec addComma 
-       
-
-      // first string is found 
-     
-//     let rec findword word i =
-//            let  = input.[i] 
-//            match word.[i] <> ' ' with
-//            | true -> findword word.[i] i+1
-////            | _ -> 
-//let FindNextWord (input:string) i= 
-        
-//       //  let rec findwords input i =
-
-//                // first char in input
-//              match input.[i] = ' ' with
-//              | true -> 
-//                         
-//                         startingIndex = input.[i+1]
-//                         foundword
-                      
-//              |  _ ->    ""
 
 
                          
@@ -88,25 +71,7 @@ let commaSprinkler (input : string)  =
                                    | true ->  let nmystring = setInput input mystring indexToStartAt 
                                               mystring
                        myf input 0
-                       //    match isComma with 
-                       //    | true -> addCommaToConcurrencies 
-
-
-                        
-                     //  GetNextIndex (input) (0)
-
-
-  //                        let rec space sentence n =
-  //                            match input.[n] = ' ' with
-  //                             | true ->  
-  //                                      input + space sentence n+1
-                        
-  //                             | false ->    
-  //                                      let next =  (FindNextWord (input) (n))  in
-  //                                      let word  = findword + next in
-  //                                                      next //  next + word
-  //                        space input 0            
-  // failwith "Not implemented"
+                     
 
 let rivers input =
     failwith "Not implemented"
