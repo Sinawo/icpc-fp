@@ -2,7 +2,7 @@
 open System
 
 (*this method finds words the in input*)
-let FindWords (input : string) = 
+let Findwords (input : string) (index : int)= 
    
       
       let rec search statingIndex i =
@@ -10,39 +10,43 @@ let FindWords (input : string) =
         match input.[i] <> ' ' with
         | true -> search statingIndex (i+1)
         |  _ ->  
-                 let foundword = input.[input.IndexOf(firstCharForNext)..i-1] in
-                 let statingIndex = i+1 in
+                 let foundword = input.[statingIndex..i-1] in
                  foundword
-      search 0 0
+      search index (index)
               //   let IsContainsPrecidingComma = IsComma foundword
  
+
+
+
+let setInput (input : string) (mystring : string)(*contains comma*) (index : int) = failwith "j"
+                                
+                                //let rec myf 
+
+                   
+
  (*this method returns the word which contains a comma or "NotFound" if there's no comma*)
 let IsComma (word :string) =
-          match word.EndsWith(',') with 
+          match word.[word.Length-1] = ',' with 
           | true -> word
           | _ -> "NotFound"
    
-let addCommaToConcurrencies input index = failwith " kkkkkkkk"
+//let addCommaToConcurrencies input index =  failwith " kkkkk"
+            //match input = "NotFound" with
+            //| true -> 
 
-let GetNext (input : string) (index : int ) =
+
+let GetNextIndex (input : string) (index : int)=
 
      let rec search statingIndex i =
-        let firstCharForNext = input.[statingIndex]   /////
         match input.[i] <> ' ' with
         | true -> search statingIndex (i+1)
         |  _ ->  
-                 let foundword = input.[input.IndexOf(firstCharForNext)..i-1] in
                  let statingIndex = i+1 in
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                 match IsComma foundword with 
-                 | foundword -> addCommaToConcurrencies foundword statingIndex
-                 | _ -> search statingIndex i+1
+                 statingIndex
+     search index index
 
-                
-     search 0 0
-
-let SucceedingComma (input : string)  (word : string) =
-                       FindWords input
+let SucceedingComma (input : string)  (word : string) = failwith "kkk"
+                  //     FindWords input
 //                let rec addComma 
        
 
@@ -68,8 +72,28 @@ let SucceedingComma (input : string)  (word : string) =
 
 
                          
-let commaSprinkler (input:string)  =
-                       GetNext (input) (0)
+let commaSprinkler (input : string)  =
+                      //  Findwords (input)
+                       let indexToStartAt = 0;
+
+
+                       let rec myf string index =
+
+                       //recursion here-----------------------------------------------------------
+                          let mystring = Findwords (input) (index)   // 1. find word in sentnce
+                         // let isComma = IsComma mystring                  
+                          let indexToStartAt = GetNextIndex input index in // 3. get the next index where we should start finding these words
+                                   match mystring.EndsWith(',') && mystring.[mystring.Length-1] <> ('\t')  with       // 2. check if 1. has comma
+                                   | false -> myf input indexToStartAt
+                                   | true ->  let nmystring = setInput input mystring indexToStartAt 
+                                              mystring
+                       myf input 0
+                       //    match isComma with 
+                       //    | true -> addCommaToConcurrencies 
+
+
+                        
+                     //  GetNextIndex (input) (0)
 
 
   //                        let rec space sentence n =
