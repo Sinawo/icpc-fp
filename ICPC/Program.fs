@@ -80,8 +80,60 @@ let commaSprinkler (input : string)  =
                        myf 0
                      
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////rivers
+let findMaxlength (a : string) (b:int) = //(b : string)  = 
+         let lengthA = a.Length
+        // let lengthB = b.Length
+         match lengthA > b  with
+         | true -> lengthA
+         | _ -> b
+
+let liststring (c:string) = Seq.toList(c.Split ' ')
+let length (x:string list)= List.length x
+let numofwords (input:string)=
+    match (length (liststring input)) > 2 with
+    |true -> Some input
+    |_-> None
+
+let spacesensitive (input:string) =
+    match (input:string).StartsWith(' ') || (input:string).EndsWith(' ')|| (input:string).Contains("  ") with
+    |true-> None
+    |_-> Some input
+
+///let nopunctuation (input:string)=
+let output (input:string)=
+
+    let ourlist = liststring input
+    let max = findMaxlength ourlist.Head 0
+    let index = 0
+    match ourlist.Length > 2  with
+    |true -> let rec iter listsentence i = 
+                  match listsentence with
+                  | [] -> (ourlist.[i],max)
+                  | head::tail ->
+                                
+                                  let max = findMaxlength head max
+                                  iter (tail) (i+1)
+                                /// let stringlen (s:string) = String.length s  
+                                
+                                //  match   with
+                                //  |true -> iter tail (acc+1)
+                                //  |_-> iter tail acc
+             iter ourlist index
+    |_-> (ourlist.[index],max)
+                
+//let LongerstLength (input : string) = 
+//     let ourlist = listring input
+    
+
+//     let rec findWord i acc =
+        
+//        match input.[i] 
+
+
 let rivers input =
-    failwith "Not implemented"
+    output input
+   // failwith "Not implemented"
 
 [<EntryPoint>]
 let main argv =
